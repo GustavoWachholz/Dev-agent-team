@@ -1,27 +1,35 @@
 # Run
 
-Run ID:
-Feature ID:
-Agent:
-Task IDs:
-Started at (UTC):
-Finished at (UTC):
-Status:
-Rules version:
+run_id:
+feature_id:
+agent:
+task_ids:
+started_at_utc:
+finished_at_utc:
+execution_status: RUNNING / COMPLETED / BLOCKED / FAILED / CANCELLED
+decision_status: <decisão do domínio ou sem decisão>
+team_version: 0.2
+team_commit:
+cycle:
+attempt:
+previous_runs:
 
-## Input artifacts
+## Inputs
+Caminhos relativos, versões e hashes/commits exatos:
 
-Caminhos e versões exatos:
+## Code
+base_commit:
+dependency_commits:
+prepared_base_commit:
+branch:
+tested_commit:
 
-## Output artifacts
+## Results and evidence
 
-## Source revision
+## Output manifest
+Caminho | SHA-256
+Não incluir este RUN.md no manifesto.
 
-Branch:
-Commit tested:
+## Approval references
 
-## Previous / related runs
-
-## Decision or approval references
-
-## Evidence and open issues
+## Open issues and next action

@@ -4,16 +4,14 @@
 
 | Campo | Valor |
 |---|---|
-| Versão | 0.1 |
-| Status | DRAFT — para análise humana |
+| Versão | 0.2 |
+| Status | VIGENTE — revisão de consistência autorizada |
 | Data | 2026-09-17 |
 | Escopo | Os dez agentes de desenvolvimento definidos nesta conversa |
 | Base | Documentos AGENT-01 a AGENT-10 e decisões da conversa original |
-| Aprovação | Pendente |
+| Aprovação | Usuário autorizou aplicar as correções propostas e criar v0.2 nesta conversa |
 
-Este documento consolida regras comuns e propõe a harmonização de diferenças entre os documentos individuais. Sua criação não significa aprovação nem altera automaticamente os dez arquivos existentes.
-
-As regras sem marcação específica consolidam o fluxo já descrito. Trechos identificados como **Proposta v0.1** explicitam convenções ou resoluções ainda sujeitas à sua análise.
+Este documento define as regras comuns vigentes. A v0.2 aplica a revisão autorizada pelo usuário; escolhas operacionais estão explicitadas abaixo. Mudanças futuras exigem versionamento, e features em andamento permanecem na versão fixada até migração registrada.
 
 ## 2. Princípios da equipe
 
@@ -58,7 +56,7 @@ O plano técnico, o Task Package e o código não podem redefinir requisitos. Co
 
 Seguir IMPLEMENTATION_PLAN e contratos aprovados, depois Task Packages e implementação. O plano deve atender à FEATURE_SPEC e respeitar o UX_SPEC aplicável.
 
-**Proposta v0.1:** tratar UX_SPEC e IMPLEMENTATION_PLAN como documentos complementares em seus domínios. Se conflitarem entre si ou com a especificação, registrar o conflito e retornar aos responsáveis; não escolher silenciosamente uma versão.
+**Regra v0.2:** tratar UX_SPEC e IMPLEMENTATION_PLAN como documentos complementares em seus domínios. Se conflitarem entre si ou com a especificação, registrar o conflito e retornar aos responsáveis; não escolher silenciosamente uma versão.
 
 ### 4.3 Responsáveis pelos artefatos
 
@@ -78,7 +76,7 @@ Seguir IMPLEMENTATION_PLAN e contratos aprovados, depois Task Packages e impleme
 
 Uma solicitação de mudança não concede permissão para editar o artefato de outro papel.
 
-**Proposta v0.1:** após aprovação e sincronização dos documentos, TEAM-RULES define as regras comuns e os arquivos de agente detalham cada papel. Divergências não resolvidas devem ser explicitadas antes de executar a ação conflitante.
+**Regra v0.2:** TEAM-RULES define as regras comuns e os arquivos de agente detalham cada papel. Divergências não resolvidas devem ser explicitadas antes de executar a ação conflitante.
 
 ## 5. Fluxo e gates
 
@@ -99,7 +97,7 @@ O gate DEV_READY deve incorporar o UX Review quando exigido. Isso harmoniza a li
 
 Uma dúvida funcional bloqueante impede avançar o trabalho dependente mesmo quando já existe SPEC_CHANGE_REQUEST. O registro do pedido não resolve o bloqueio.
 
-**Proposta v0.1:** enquanto uma dependência estiver bloqueada, o Manager pode manter tarefas independentes em execução, desde que seu escopo e contratos continuem válidos.
+**Regra v0.2:** enquanto uma dependência estiver bloqueada, o Manager pode manter tarefas independentes em execução, desde que seu escopo e contratos continuem válidos.
 
 ## 6. Estados e nomenclatura
 
@@ -118,7 +116,7 @@ Não usar um único campo de status para representar simultaneamente tarefa, doc
 | Resultado de QA | QA_BLOCKED, QA_FAILED, QA_PASS |
 | Teste | NOT_RUN, PASS, FAIL, BLOCKED, SKIPPED |
 
-**Proposta v0.1 — normalização:**
+**Normalização vigente:**
 
 - TASK_BLOCKED é um retorno do agente; o Manager registra a tarefa como BLOCKED.
 - RESULT_INCOMPLETE indica entrega insuficiente; a tarefa não vira COMPLETED.
@@ -139,13 +137,13 @@ BLOCKED significa impedimento de execução. FAILED significa falha constatada n
 - O Integration Agent consolida na branch da feature conforme a estratégia Git do projeto.
 - Preservar histórico e alterações alheias à tarefa.
 
-**Proposta v0.1:** toda entrega deve identificar branch e commit/revisão. A decisão sobre merge, rebase ou cherry-pick deve seguir uma configuração do projeto; este documento não fixa uma única estratégia.
+**Regra v0.2:** toda entrega deve identificar branch e commit/revisão. A decisão sobre merge, rebase ou cherry-pick deve seguir uma configuração do projeto; este documento não fixa uma única estratégia.
 
 ## 8. Protocolo de handoff
 
 Todo handoff deve carregar o contrato de trabalho e as evidências necessárias. O destinatário confere suas pré-condições antes de iniciar.
 
-**Proposta v0.1 — envelope comum:**
+**Envelope obrigatório:**
 
 ```text
 HANDOFF
@@ -180,7 +178,7 @@ A primeira FEATURE_SPEC aprovada é v1.0. Mudanças funcionais posteriores geram
 
 O Planner revisa o plano após mudanças relevantes e o Architecture Reviewer realiza nova revisão. UX, tarefas e testes devem refletir as decisões aprovadas.
 
-**Proposta v0.1 — convenção comum:**
+**Convenção obrigatória:**
 
 - Cada artefato identifica feature, versão ou ciclo, autor, status e versões de entrada.
 - Registrar aprovador e referência da aprovação, quando houver.
@@ -214,7 +212,7 @@ Durante planejamento, Planner e Reviewer podem trocar revisões diretamente. Dur
 
 O Manager mantém tentativas e o limite já proposto de MAX_AUTOMATIC_RETRIES = 2.
 
-**Proposta v0.1:** interpretar o limite como duas novas tentativas após a inicial. Cada retry registra hipótese e mudança de abordagem. Após o limite, o Manager analisa a causa; isso não implica envolver o usuário em toda falha técnica.
+**Regra v0.2:** interpretar o limite como duas novas tentativas após a inicial. Cada retry registra hipótese e mudança de abordagem. Após o limite, o Manager analisa a causa; isso não implica envolver o usuário em toda falha técnica.
 
 Ainda não há limite numérico definido para os ciclos Planner/Reviewer, UX Review ou QA. Preferências pessoais não justificam reprovação técnica nem ciclos indefinidos de retrabalho.
 
@@ -244,7 +242,7 @@ O Integration Agent só aplica SAFE_INTEGRATION_FIX quando a alteração é pequ
 
 Não declarar PASS para teste não executado. Não alterar expectativas apenas para obter resultado verde. Mudanças aprovadas de comportamento que invalidem testes devem ser justificadas e registradas.
 
-**Proposta v0.1:** verificações sem aplicação técnica, como typecheck em projeto sem esse mecanismo, são registradas como N/A com justificativa. Verificação necessária, mas indisponível, é pendência/bloqueio, não N/A.
+**Regra v0.2:** verificações sem aplicação técnica, como typecheck em projeto sem esse mecanismo, são registradas como N/A com justificativa. Verificação necessária, mas indisponível, é pendência/bloqueio, não N/A.
 
 ### Critérios dos reviews
 
@@ -252,9 +250,9 @@ Não declarar PASS para teste não executado. Não alterar expectativas apenas p
 - UX Review: UX_BLOCKER e UX_MAJOR devem estar zerados.
 - Integração: todas as condições de validação devem passar, sem conflitos semânticos ou blockers.
 - QA: testes obrigatórios passaram, critérios cobertos, regressão passou e defeitos CRITICAL, HIGH e MEDIUM zerados.
-- LOW no QA exige correção ou aceitação humana/gerencial via RELEASE_WITH_KNOWN_ISSUE_REQUEST; QA não decide sozinho.
+- LOW no QA exige correção ou aprovação humana explícita via RELEASE_WITH_KNOWN_ISSUE_REQUEST, preparada pelo Manager e vinculada aos defects e à revisão. O Manager não aceita sozinho o risco.
 
-**Proposta v0.1:** INTEGRATION_MAJOR também impede INTEGRATION_PASS. Essa condição torna explícito o tratamento de uma categoria já existente no documento de integração.
+**Regra v0.2:** INTEGRATION_MAJOR também impede INTEGRATION_PASS. Essa condição torna explícito o tratamento de uma categoria já existente no documento de integração.
 
 Severity do QA mede impacto. Prioridade do Manager define a ordem de correção. Essas classificações não são intercambiáveis.
 
@@ -262,9 +260,9 @@ Toda correção após falha de QA passa por testes individuais, integração e n
 
 ## 13. Integração, release e produção
 
-Há uma divergência a harmonizar: AGENT-09 proíbe merge em main, enquanto AGENT-10 prevê o Integration Agent nessa ação após o gate final.
+Integração normal não autoriza merge em main. A exceção de release abaixo está refletida no AGENT-09 e no AGENT-10.
 
-**Proposta v0.1 — resolução:**
+**Regra vigente:**
 
 1. Durante integração normal, o Integration Agent só consolida a branch da feature.
 2. Após QA_PASS, o Manager prepara o Release Gate.
@@ -273,7 +271,7 @@ Há uma divergência a harmonizar: AGENT-09 proíbe merge em main, enquanto AGEN
 5. Nessa ação, o Integration Agent pode realizar o merge feature → main.
 6. A exceção não autoriza deploy ou alterações de banco em produção.
 
-**Proposta v0.1:** o pacote de release identifica branch/commit, relatórios aplicáveis, known issues aceitos e aprovações. Se houver mudança posterior, os responsáveis reavaliam o impacto antes de usar as aprovações.
+**Regra v0.2:** o pacote de release identifica branch/commit, relatórios aplicáveis, known issues aceitos e aprovações. Se houver mudança posterior, os responsáveis reavaliam o impacto antes de usar as aprovações.
 
 A aprovação de QA não equivale à aprovação de release. O merge em main não significa que houve deploy.
 
@@ -288,40 +286,70 @@ O processo de deploy, ambientes produtivos e recuperação operacional ainda nã
 - Aprovação humana é obrigatória para FEATURE_SPEC e para o gate inicial de release.
 - Silêncio, hipótese ou conclusão de um agente não representa aprovação humana.
 
-## 15. Pontos para análise e harmonização
+## 15. Protocolo operacional v0.2
 
-| ID | Ponto | Proposta / situação |
-|---|---|---|
-| TR-01 | Precedência entre documentos | Regras comuns neste documento após aprovação e sincronização; detalhes nos agentes |
-| TR-02 | UX_SPEC versus plano técnico | Domínios complementares; conflitos retornam aos autores |
-| TR-03 | Dúvidas funcionais bloqueantes | Pedido aberto não libera avanço dependente |
-| TR-04 | DEV_READY e UX Review | Incluir aprovação UX quando exigida |
-| TR-05 | Retries | Duas novas tentativas após a inicial; confirmar interpretação |
-| TR-06 | Integração com MAJOR aberto | Bloquear INTEGRATION_PASS |
-| TR-07 | Testes não aplicáveis | N/A justificado, sem confundir com testes bloqueados |
-| TR-08 | Merge final em main | Exceção explícita de release após Manager + usuário |
-| TR-09 | Aceitação de LOW | Definir posteriormente quando basta decisão gerencial e quando exige usuário |
-| TR-10 | Formato do Task Graph | Markdown/JSON/YAML ainda sem formato canônico escolhido |
-| TR-11 | Revisões especializadas | Critérios, executores e fluxo de segurança/acessibilidade/performance ainda precisam ser detalhados |
-| TR-12 | Deploy e produção | Processo não definido nesta versão |
+### Inicialização e contexto obrigatório
 
-A aprovação deste rascunho deve ser seguida da harmonização dos documentos individuais, especialmente AGENT-02, AGENT-04, AGENT-09 e AGENT-10.
+Todos os agentes carregam TEAM-RULES, ARTIFACT-STORAGE-RULES e sua definição da versão fixada no projeto. Registrar o commit da equipe, além da versão 0.2. O Manager é responsável pelo estado da feature e pelo índice CURRENT.md; antes de sua participação, o Feature Analyst mantém o registro inicial e transfere essa responsabilidade no handoff.
 
-## 16. Critérios para concluir a revisão deste documento
+Cada Task Package usa o modelo comum, com base de código, dependências exatas, critérios, testes e UX_REQUIRED. TASK_GRAPH.md é a fonte canônica de estado; outros formatos são derivados.
 
-```text
-[ ] Responsabilidades e permissões confirmadas
-[ ] Hierarquia de artefatos confirmada
-[ ] Gates e estados harmonizados
-[ ] Protocolo de handoff e versionamento revisados
-[ ] Critérios de bloqueio e retries revisados
-[ ] Exceção de release confirmada ou substituída
-[ ] Pendências identificadas sem aprovação implícita
-[ ] Decisão humana registrada sobre a versão
-```
+### Dependências de código entre tarefas
+
+1. O Manager identifica os commits concluídos que uma tarefa precisa consumir.
+2. Quando não há dependência de código, o worktree parte do base_commit registrado.
+3. Quando há dependências, o Manager aciona o Integration Agent em DEPENDENCY_PREPARATION, antes de DEV_READY.
+4. O Integration Agent cria uma branch preparatória a partir da base registrada e faz merge dos commits necessários, preservando ancestralidade. Resolve somente SAFE_INTEGRATION_FIX; conflitos semânticos voltam ao Manager.
+5. Registra dependências, prepared_base_commit e verificações mínimas necessárias ao consumidor. Essa preparação não é INTEGRATION_PASS.
+6. O Manager cria/libera a branch da tarefa a partir dessa base preparada.
+7. Se a dependência mudar, o Manager bloqueia os consumidores afetados, solicita nova preparação e revalidação. Não atualizar worktrees silenciosamente.
+8. Após DEV_READY, a integração final consolida os commits entregues e executa todas as validações.
+
+A estratégia padrão para essas dependências é merge preservando histórico. Não reescrever commits já entregues. O Manager continua sem permissão para executar merge.
+
+### Aplicabilidade de UX e verificações
+
+UX_REQUIRED=YES quando a tarefa cria ou altera fluxo, interação, estados, layout ou comportamento visível. O Manager pode definir NO para trabalho sem impacto de UX, com justificativa no Task Package; em dúvida, solicitar avaliação ao UX/UI Agent. Quando YES, UX_SPEC e UX Review são obrigatórios.
+
+Verificações tecnicamente inaplicáveis usam N/A com justificativa. Ausência de ambiente ou ferramenta necessária gera BLOCKED. Os modelos não devem trazer PASS pré-preenchido como resultado real.
+
+### Estados de execução, revisão e recuperação
+
+RUN.md usa execution_status: RUNNING, COMPLETED, BLOCKED, FAILED ou CANCELLED. decision_status registra separadamente a decisão do domínio, como APPROVED, CHANGES_REQUESTED ou QA_PASS.
+
+Architecture Reviewer sem acesso ao código encerra BLOCKED e deixa decision_status sem decisão; não reprova artificialmente o plano. Na revisão concluída, só APPROVED ou CHANGES_REQUESTED.
+
+MAX_AUTOMATIC_RETRIES=2 significa duas novas tentativas além da inicial, três no total. Retorno com correção aprovada abre novo ciclo, sem apagar tentativas anteriores. Duas revisões consecutivas repetindo o mesmo finding sem progresso exigem triage do Manager, não outro retry cego. Se a disputa for funcional, escalar ao usuário via Analyst; se técnica, Planner e Reviewer devem registrar evidências e alternativas.
+
+### Aprovações e commit exato
+
+Reports de developer, integração, UX Review e QA registram tested_commit. O pacote de release registra candidate_commit e target_base_commit. Branch é apenas um localizador.
+
+Se main avançar, o Integration Agent prepara novo candidato incorporando a nova base, executa integração e o QA revalida o impacto. Registrar novo QA_REPORT e obter aprovação humana para o candidato atualizado. Não reutilizar automaticamente a aprovação antiga.
+
+Antes do merge, confirmar que candidato e destino ainda correspondem aos commits autorizados; divergência bloqueia RELEASE_EXECUTION. Quando possível usar avanço fast-forward do destino para o candidato validado; outra estratégia deve preservar o conteúdo validado e ser explicitada no pacote de release.
+
+### Revisões especializadas
+
+ACCESSIBILITY_REVIEW_REQUIRED, PERFORMANCE_REVIEW_REQUIRED e SECURITY_REVIEW_REQUIRED exigem registro de escopo, responsável e condição de conclusão. O Manager atribui a alguém com capacidade pertinente ou solicita apoio humano; não presume a existência de um agente especializado.
+
+Quando a revisão for declarada necessária para segurança/correção de um requisito, bloqueia a aprovação dependente até existir evidência de conclusão. Uma recomendação opcional deve ser registrada como NOTE, sem usar REQUIRED. O Manager coordena, mas não substitui a aprovação técnica especializada.
+
+### Defects e encerramento
+
+O QA mantém o identificador estável do defect. Cada nova execução registra sua evolução, referência à correção e resultado do reteste. O Manager atribui prioridade e responsável; QA confirma resolução. Fechamento não apaga o relato original.
+
+Known issues LOW precisam de APPROVAL.md humano com IDs, impacto e revisão correspondente. Se afetarem testes obrigatórios ou critérios de aceitação, não dispensam esses gates; uma mudança funcional deve voltar ao Analyst.
+
+## 16. Limites e pendências intencionais
+
+Deploy e operação de produção continuam fora desta versão. Merge em main não autoriza deploy. Nenhum executor, backup externo ou proteção de branch é instalado apenas pela existência destes documentos.
+
+A revisão aprofundada por agente e o piloto continuam recomendados; não impedem usar estas regras como base de consistência.
 
 ## 17. Histórico
 
 | Versão | Data | Alteração | Status |
 |---|---|---|---|
-| 0.1 | 2026-09-17 | Consolidação inicial dos dez agentes, com propostas de harmonização e pendências para análise | DRAFT |
+| 0.1 | 2026-09-17 | Consolidação inicial e propostas de harmonização | Histórico preservado no Git |
+| 0.2 | 2026-09-17 | Regras vigentes, protocolo de execução, branches dependentes, gates, armazenamento e aprovações por revisão | VIGENTE |

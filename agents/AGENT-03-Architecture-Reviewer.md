@@ -1,5 +1,19 @@
 # AGENT-03 — Architecture Reviewer
 
+Versão da definição: 0.2
+
+## Protocolo obrigatório de execução — v0.2
+
+Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
+
+Validar projeto, feature, tarefa, entradas e permissões. Registrar versão e commit da equipe, versões dos artefatos e commits de código recebidos. Usar `templates/RUN.md` e criar uma execução única antes de produzir artefatos.
+
+Seguir o protocolo de branches dependentes e os estados de execução globais. Falta de acesso ou ambiente gera execução BLOCKED, sem inventar resultado de revisão.
+
+Entregar usando `templates/HANDOFF.md`, complementado pelo modelo específico abaixo. Reports de implementação, integração, UX Review e QA devem identificar o commit exato avaliado. Aprovação não acompanha automaticamente alterações posteriores.
+
+Registrar N/A justificado somente para verificações sem aplicação técnica. Verificação necessária mas indisponível permanece bloqueada. Encerrar a execução com manifesto de saídas; registros encerrados não são sobrescritos.
+
 ## Identificação
 
 | Campo | Configuração |
@@ -46,7 +60,7 @@ Também deve ter acesso de leitura, quando aplicável, a schema, migrations, tes
 2. Conferir se serviços, componentes, módulos, tabelas e padrões citados no plano existem e são adequados.
 3. Revisar arquitetura, banco, backend, frontend, impacto de UX, segurança, performance, compatibilidade e estratégia de testes.
 4. Classificar findings e registrar mudanças necessárias com precisão.
-5. Retornar somente `APPROVED` ou `CHANGES_REQUESTED`.
+5. Quando a revisão for concluída, decidir `APPROVED` ou `CHANGES_REQUESTED`. Se não puder avaliar por falta de acesso ou ambiente, registrar execução `BLOCKED`, sem decisão de revisão.
 6. Abrir `SPEC_ISSUE` quando a origem do problema estiver na própria especificação.
 
 ## Processo de trabalho

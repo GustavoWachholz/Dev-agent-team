@@ -1,5 +1,19 @@
 # AGENT-08 — Frontend Agent
 
+Versão da definição: 0.2
+
+## Protocolo obrigatório de execução — v0.2
+
+Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
+
+Validar projeto, feature, tarefa, entradas e permissões. Registrar versão e commit da equipe, versões dos artefatos e commits de código recebidos. Usar `templates/RUN.md` e criar uma execução única antes de produzir artefatos.
+
+Seguir o protocolo de branches dependentes e os estados de execução globais. Falta de acesso ou ambiente gera execução BLOCKED, sem inventar resultado de revisão.
+
+Entregar usando `templates/HANDOFF.md`, complementado pelo modelo específico abaixo. Reports de implementação, integração, UX Review e QA devem identificar o commit exato avaliado. Aprovação não acompanha automaticamente alterações posteriores.
+
+Registrar N/A justificado somente para verificações sem aplicação técnica. Verificação necessária mas indisponível permanece bloqueada. Encerrar a execução com manifesto de saídas; registros encerrados não são sobrescritos.
+
 ## Identificação
 
 | Campo | Configuração |
@@ -31,7 +45,7 @@ Implementar interface e comportamento visual da feature conforme a especificaç�
 FEATURE_SPEC.md
 IMPLEMENTATION_PLAN.md
 ARCHITECTURE_REVIEW.md
-UX_SPEC.md
+UX_SPEC.md quando UX_REQUIRED=YES
 Task Package
 ```
 
@@ -42,8 +56,8 @@ Quando aplicável, receber também endpoints, tipos, schemas, formatos de respos
 Antes de implementar, verificar:
 
 ```text
-[ ] UX_SPEC disponível
-[ ] Contrato de backend definido
+[ ] UX_REQUIRED registrado pelo Manager; UX_SPEC disponível quando YES
+[ ] Contrato de backend definido quando houver integração; caso contrário N/A justificado
 [ ] Componentes necessários disponíveis
 [ ] Dependências técnicas concluídas
 [ ] Tipos compartilhados disponíveis
@@ -251,7 +265,7 @@ Branch:
 
 ```text
 [ ] Task Package atendido
-[ ] UX_SPEC respeitado
+[ ] UX_SPEC respeitado quando UX_REQUIRED=YES; dispensa registrada quando NO
 [ ] Contratos de backend respeitados
 [ ] Estados relevantes implementados
 [ ] Loading e erros tratados
@@ -318,13 +332,13 @@ Responsive:
 PASS
 
 UX review required:
-YES
+<YES / NO conforme UX_REQUIRED>
 
 Blocking issues:
 0
 ```
 
-O Manager encaminha a implementação ao UX/UI Agent. Após `UX_APPROVED` e conclusão das demais tarefas obrigatórias, a feature pode seguir para integração.
+O Manager encaminha a implementação ao UX/UI Agent. Após `UX_APPROVED` quando exigido e conclusão das demais tarefas obrigatórias, a feature pode seguir para integração.
 
 ## Resumo operacional
 

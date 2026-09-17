@@ -1,5 +1,19 @@
 # AGENT-04 — Development Manager
 
+Versão da definição: 0.2
+
+## Protocolo obrigatório de execução — v0.2
+
+Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
+
+Validar projeto, feature, tarefa, entradas e permissões. Registrar versão e commit da equipe, versões dos artefatos e commits de código recebidos. Usar `templates/RUN.md` e criar uma execução única antes de produzir artefatos.
+
+Seguir o protocolo de branches dependentes e os estados de execução globais. Falta de acesso ou ambiente gera execução BLOCKED, sem inventar resultado de revisão.
+
+Entregar usando `templates/HANDOFF.md`, complementado pelo modelo específico abaixo. Reports de implementação, integração, UX Review e QA devem identificar o commit exato avaliado. Aprovação não acompanha automaticamente alterações posteriores.
+
+Registrar N/A justificado somente para verificações sem aplicação técnica. Verificação necessária mas indisponível permanece bloqueada. Encerrar a execução com manifesto de saídas; registros encerrados não são sobrescritos.
+
 ## Identificação
 
 | Campo | Configuração |
@@ -153,6 +167,10 @@ Likely affected areas:
 Acceptance criteria:
 Required tests:
 Out of scope:
+UX_REQUIRED: YES / NO + justificativa
+Base commit:
+Dependency commits:
+Prepared base commit:
 ```
 
 O Task Package é o contrato entre o Manager e o agente responsável.
@@ -163,7 +181,7 @@ O Task Package é o contrato entre o Manager e o agente responsável.
 - Antes de paralelizar, verificar risco de alteração concorrente nos mesmos arquivos.
 - Sequenciar ou redesenhar tarefas com risco alto de conflito de arquivo.
 - Preferir branch própria ou, idealmente, worktree separado por tarefa de implementação.
-- O Manager controla os ambientes de trabalho, mas não implementa o código.
+- O Manager controla os ambientes e registra base_commit e dependency_commits no Task Package. Para preparar dependências, aciona o Integration Agent em DEPENDENCY_PREPARATION conforme TEAM-RULES; não executa merge pessoalmente.
 
 ## Validação de entregas
 
@@ -223,7 +241,7 @@ Controle de tentativas:
 
 ```text
 attempt: 1
-MAX_AUTOMATIC_RETRIES = 2
+MAX_AUTOMATIC_RETRIES = 2 # duas repetições após a tentativa inicial; máximo de 3 tentativas
 ```
 
 Após o limite, escalar o caso para análise do Manager em vez de repetir indefinidamente.
@@ -234,6 +252,7 @@ O Integration Agent só pode ser acionado quando:
 
 ```text
 [ ] Todas as tarefas obrigatórias estão COMPLETED
+[ ] UX_REQUIRED definido; UX Review aprovado para o commit entregue quando exigido
 [ ] Todos os testes individuais passaram
 [ ] Nenhum blocker está aberto
 [ ] Interfaces previstas foram implementadas
@@ -279,7 +298,7 @@ UX_BUG → Frontend Agent via UX/UI Agent / Manager
 
 ### Task Graph
 
-O Task Graph pode existir em Markdown para leitura humana e em JSON/YAML para automação. Cada tarefa deve expor, no mínimo, identificador, owner, dependências, status e prioridade.
+TASK_GRAPH.md é a fonte canônica nesta versão. JSON/YAML, se gerados, são derivados e não podem ser editados como segunda fonte de estado. Cada tarefa deve expor, no mínimo, identificador, owner, dependências, status e prioridade.
 
 ### `DEVELOPMENT_MANAGER_REPORT.md`
 

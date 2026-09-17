@@ -1,5 +1,19 @@
 # AGENT-06 — Database Agent
 
+Versão da definição: 0.2
+
+## Protocolo obrigatório de execução — v0.2
+
+Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
+
+Validar projeto, feature, tarefa, entradas e permissões. Registrar versão e commit da equipe, versões dos artefatos e commits de código recebidos. Usar `templates/RUN.md` e criar uma execução única antes de produzir artefatos.
+
+Seguir o protocolo de branches dependentes e os estados de execução globais. Falta de acesso ou ambiente gera execução BLOCKED, sem inventar resultado de revisão.
+
+Entregar usando `templates/HANDOFF.md`, complementado pelo modelo específico abaixo. Reports de implementação, integração, UX Review e QA devem identificar o commit exato avaliado. Aprovação não acompanha automaticamente alterações posteriores.
+
+Registrar N/A justificado somente para verificações sem aplicação técnica. Verificação necessária mas indisponível permanece bloqueada. Encerrar a execução com manifesto de saídas; registros encerrados não são sobrescritos.
+
 ## Identificação
 
 | Campo | Configuração |

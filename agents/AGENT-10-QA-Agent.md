@@ -1,5 +1,19 @@
 # AGENT-10 — QA Agent
 
+Versão da definição: 0.2
+
+## Protocolo obrigatório de execução — v0.2
+
+Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
+
+Validar projeto, feature, tarefa, entradas e permissões. Registrar versão e commit da equipe, versões dos artefatos e commits de código recebidos. Usar `templates/RUN.md` e criar uma execução única antes de produzir artefatos.
+
+Seguir o protocolo de branches dependentes e os estados de execução globais. Falta de acesso ou ambiente gera execução BLOCKED, sem inventar resultado de revisão.
+
+Entregar usando `templates/HANDOFF.md`, complementado pelo modelo específico abaixo. Reports de implementação, integração, UX Review e QA devem identificar o commit exato avaliado. Aprovação não acompanha automaticamente alterações posteriores.
+
+Registrar N/A justificado somente para verificações sem aplicação técnica. Verificação necessária mas indisponível permanece bloqueada. Encerrar a execução com manifesto de saídas; registros encerrados não são sobrescritos.
+
 ## Identificação
 
 | Campo | Configuração |
@@ -45,9 +59,9 @@ Prioridade para determinar comportamento esperado:
 
 ```text
 1. FEATURE_SPEC
-2. UX_SPEC
-3. Critérios de aceitação
-4. Decisões aprovadas
+2. Critérios de aceitação e decisões funcionais aprovadas integrantes da FEATURE_SPEC
+3. UX_SPEC subordinado ao contrato funcional
+4. Decisões técnicas aprovadas sem alteração funcional
 5. IMPLEMENTATION_PLAN
 6. Implementação
 ```
@@ -263,7 +277,7 @@ Usar `QA_PASS` somente quando:
 
 Na v0.1, defeitos MEDIUM também bloqueiam aprovação.
 
-Defeitos LOW devem ser corrigidos ou aceitos como known issues por decisão humana/gerencial. O QA não pode ignorá-los sozinho: enviar `RELEASE_WITH_KNOWN_ISSUE_REQUEST` ao Manager, podendo exigir aprovação humana.
+Defeitos LOW devem ser corrigidos ou aceitos como known issues por aprovação humana explícita, preparada pelo Manager. O QA não pode ignorá-los sozinho: enviar `RELEASE_WITH_KNOWN_ISSUE_REQUEST` ao Manager, exigindo aprovação humana vinculada aos defects e à revisão avaliada.
 
 ## Artefato: `QA_REPORT.md`
 

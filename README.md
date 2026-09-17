@@ -1,16 +1,21 @@
-# Agent Team
+# Agent Team — v0.2
 
-Definições centrais da equipe de dez agentes de desenvolvimento.
+Equipe de dez agentes de desenvolvimento e suas regras operacionais.
 
-## Organização
+## Conteúdo
 
-- agents/: especificações iniciais dos dez agentes, na ordem do fluxo.
-- rules/TEAM-RULES.md: regras globais v0.1, aprovadas inicialmente pelo usuário; o arquivo conserva seu texto de revisão e propostas para futura harmonização.
-- rules/ARTIFACT-STORAGE-RULES.md: organização de registros aprovada pelo usuário.
-- templates/: modelos de RUN e HANDOFF.
+- agents/: definições v0.2 dos dez agentes.
+- rules/TEAM-RULES.md: regras comuns vigentes e precedência.
+- rules/ARTIFACT-STORAGE-RULES.md: armazenamento, execuções imutáveis e índices.
+- templates/: modelos obrigatórios de registro, handoff, feature, estado atual, tarefa e aprovação.
+- CHANGELOG.md: histórico das revisões.
 
 ## Uso
 
-Cada projeto mantém seus registros em agent-records/. Registrar a versão da equipe utilizada e preservar uma cópia das definições aplicáveis ao projeto. Atualizações centrais não alteram automaticamente features em andamento.
+Carregar as duas regras comuns e o documento do agente antes de executá-lo. Fixar versão e commit deste repositório no projeto consumidor; preservar snapshot das definições e modelos em agent-records/rules/. Uma atualização central não migra features em andamento automaticamente.
 
-Os documentos de agentes ainda são versões iniciais para revisão aprofundada. A organização não instala nem configura um executor de agentes. Git e backup são recomendados; nenhum repositório remoto ou rotina de backup foi configurado nesta organização.
+Repositório: https://github.com/GustavoWachholz/Dev-agent-team
+
+Os Markdown definem o processo; não instalam um executor. Backup externo, proteção de branch e processo de deploy não foram configurados por esta revisão.
+
+A v0.2 implementa as correções autorizadas pelo usuário. A revisão aprofundada de cada papel e um piloto devem validar sua aplicação prática.
