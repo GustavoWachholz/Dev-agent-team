@@ -1,5 +1,8 @@
 # Current feature state
 
+project_id:
+repository_url:
+
 feature_id:
 updated_at_utc:
 owner: Development Manager

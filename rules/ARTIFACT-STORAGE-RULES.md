@@ -6,27 +6,29 @@ Status: estrutura aprovada pelo usuário nesta conversa.
 ## Localização
 
 Definições centrais: C:\Users\gusta\Documents\Agent-Team.
-Registros de execução: agent-records/ na raiz de cada projeto.
+Registros de execução: C:\Users\gusta\Documents\Agent-Records, fora dos repositórios de código.
 
 ## Estrutura por projeto
 
 ```text
-agent-records/
+Agent-Records/
 ├── README.md
-├── rules/
-│   └── v0.2-<team-commit>/
-│       ├── TEAM-RULES.md
-│       ├── ARTIFACT-STORAGE-RULES.md
-│       └── AGENT-01...AGENT-10.md
-└── features/
-    └── FEATURE-014-importacao-de-compras/
-        ├── FEATURE.md
-        ├── CURRENT.md
-        └── 01-feature-analyst/
-            └── 20260917T143025Z-run-001/
-                ├── RUN.md
-                ├── FEATURE_SPEC.md
-                └── HANDOFF.md
+└── PROJECT-<UUID>-nome-do-projeto/
+    ├── PROJECT.md
+    ├── rules/
+    │   └── v0.2-<team-commit>/
+    │       ├── agents/
+    │       ├── rules/
+    │       └── templates/
+    └── features/
+        └── FEATURE-014-importacao-de-compras/
+            ├── FEATURE.md
+            ├── CURRENT.md
+            └── 01-feature-analyst/
+                └── 20260917T143025Z-run-<UUID>/
+                    ├── RUN.md
+                    ├── FEATURE_SPEC.md
+                    └── HANDOFF.md
 ```
 
 ## Regras
@@ -61,6 +63,20 @@ Usar o modelo RUN.md da pasta templates/ e referenciar handoffs e aprovações c
 - Aprovação recebida após encerramento gera novo registro APPROVAL.md em nova execução, referenciando o artefato aprovado.
 - Se houver interrupção, o Manager registra em nova execução que a anterior foi interrompida/superada. Preserva o diretório anterior sem completar ou reescrever seus arquivos. A retomada recebe novo Run ID.
 - CURRENT.md só aponta para entregas aceitas e versões aprovadas; atualizações são serializadas pelo responsável e commitadas no Git. O índice não concede aprovação.
-- Registrar team_version e team_commit imutável. O snapshot inclui agentes, regras e templates; usar caminhos relativos ao projeto nos handoffs.
-- Registros de preparação de dependências também devem ser preservados. Na integração, conservar a união dos registros das branches; conflitos em CURRENT.md são resolvidos pelo Manager a partir dos eventos, sem descartar execuções.
+- Registrar team_version e team_commit imutável. O snapshot inclui agentes, regras e templates; usar artifact_paths relativos à pasta de registros do projeto; code_paths são relativos à raiz do repositório de código. Nunca misturar essas duas bases.
+- Registros de preparação de dependências também devem ser preservados. Os registros ficam fora das branches de código e não são transportados por merge. Todas as instâncias e worktrees do mesmo projeto usam a mesma pasta de registros. O Manager serializa atualizações de CURRENT.md, sem descartar execuções.
 - Git não substitui backup independente. A política exige preservação; o operador do projeto deve prover backup, cuja implementação não faz parte desta revisão.
+
+## Identidade do projeto e resolução de caminhos
+
+Antes da primeira execução, o Feature Analyst ou Manager cadastra PROJECT.md a partir do modelo. Alocar project_id com UUID e manter o ID mesmo se o repositório mudar de nome ou local. Uma cópia/worktree do mesmo projeto reutiliza esse ID; um projeto independente recebe outro.
+
+PROJECT.md registra URL do repositório sem credenciais, caminhos locais conhecidos, records_root, team_version e team_commit. Os caminhos locais servem para localizar o checkout; repository_url e commits identificam o código avaliado.
+
+Cada RUN e HANDOFF inclui project_id e repository_url. artifact_paths são relativos à pasta PROJECT-<UUID>-nome; code_paths são relativos ao checkout. Não resolver caminhos de artefatos com base no diretório de trabalho do agente.
+
+O snapshot em rules/ é criado a partir do commit fixado da equipe e inclui regras, agentes e modelos. Não apontar para arquivos centrais mutáveis como se fossem um snapshot.
+
+O histórico central requer versionamento próprio e backup independente do repositório de código. Sua configuração não é implícita; registrar no README da raiz o estado real de Git/remoto/backup. Não enviar registros para o repositório Agent-Team.
+
+Se houver registros legados em um projeto, preservá-los e registrar sua origem antes de uma migração explícita. Esta alteração não autoriza apagar históricos anteriores.

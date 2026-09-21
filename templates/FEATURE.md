@@ -1,5 +1,8 @@
 # Feature
 
+project_id:
+repository_url:
+
 feature_id:
 title:
 objective:

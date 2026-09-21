@@ -1,5 +1,8 @@
 # Task Package
 
+project_id:
+repository_url:
+
 task_id:
 feature_id:
 owner:

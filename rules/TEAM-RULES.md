@@ -288,6 +288,11 @@ O processo de deploy, ambientes produtivos e recuperação operacional ainda nã
 
 ## 15. Protocolo operacional v0.2
 
+### Raiz central dos registros
+
+Execuções são armazenadas em C:\Users\gusta\Documents\Agent-Records\<project-id>\features\, conforme ARTIFACT-STORAGE-RULES. Cada projeto tem PROJECT.md, identidade permanente e snapshot da equipe. Registros são compartilhados entre worktrees e não participam dos merges do código. RUN e HANDOFF distinguem caminhos de artefatos e caminhos de código.
+
+
 ### Inicialização e contexto obrigatório
 
 Todos os agentes carregam TEAM-RULES, ARTIFACT-STORAGE-RULES e sua definição da versão fixada no projeto. Registrar o commit da equipe, além da versão 0.2. O Manager é responsável pelo estado da feature e pelo índice CURRENT.md; antes de sua participação, o Feature Analyst mantém o registro inicial e transfere essa responsabilidade no handoff.

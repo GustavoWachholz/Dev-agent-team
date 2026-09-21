@@ -1,5 +1,8 @@
 # Approval
 
+project_id:
+repository_url:
+
 approval_id:
 feature_id:
 scope: SPEC / RELEASE / KNOWN_ISSUE

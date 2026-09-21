@@ -2,6 +2,8 @@
 
 ## 0.2 — 2026-09-17
 
+- Ajuste aprovado: registros externos em Agent-Records, por projeto; PROJECT.md, identidade do repositório e separação de caminhos de artefatos/código.
+
 - Regras globais vigentes e protocolo obrigatório nos dez agentes.
 - Planner bloqueado enquanto houver dúvida funcional pendente.
 - Preparação de branches dependentes antes de DEV_READY.

@@ -1,5 +1,8 @@
 # Handoff
 
+project_id:
+repository_url:
+
 from:
 to:
 feature_id:
@@ -11,7 +14,7 @@ team_version: 0.2
 team_commit:
 
 ## Artifacts
-Caminhos relativos e versões exatas:
+artifact_paths relativos à pasta de registros do projeto, com versões exatas:
 
 ## Code
 branch:

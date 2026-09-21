@@ -1,5 +1,8 @@
 # Run
 
+project_id:
+repository_url:
+
 run_id:
 feature_id:
 agent:
@@ -15,7 +18,7 @@ attempt:
 previous_runs:
 
 ## Inputs
-Caminhos relativos, versões e hashes/commits exatos:
+artifact_paths relativos à pasta de registros do projeto, versões e hashes/commits exatos:
 
 ## Code
 base_commit:

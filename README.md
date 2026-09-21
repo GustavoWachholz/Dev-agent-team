@@ -10,9 +10,13 @@ Equipe de dez agentes de desenvolvimento e suas regras operacionais.
 - templates/: modelos obrigatórios de registro, handoff, feature, estado atual, tarefa e aprovação.
 - CHANGELOG.md: histórico das revisões.
 
+## Armazenamento
+
+Definições: Agent-Team. Histórico de execuções: C:\Users\gusta\Documents\Agent-Records, organizado por projeto, feature, agente e execução. Os registros não entram nas branches do código. Consultar ARTIFACT-STORAGE-RULES e templates/PROJECT.md.
+
 ## Uso
 
-Carregar as duas regras comuns e o documento do agente antes de executá-lo. Fixar versão e commit deste repositório no projeto consumidor; preservar snapshot das definições e modelos em agent-records/rules/. Uma atualização central não migra features em andamento automaticamente.
+Carregar as duas regras comuns e o documento do agente antes de executá-lo. Fixar versão e commit deste repositório no projeto consumidor; preservar snapshot das definições e modelos em C:\Users\gusta\Documents\Agent-Records\<project-id>\rules\. Uma atualização central não migra features em andamento automaticamente.
 
 Repositório: https://github.com/GustavoWachholz/Dev-agent-team
 
