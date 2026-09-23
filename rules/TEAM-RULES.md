@@ -4,14 +4,14 @@
 
 | Campo | Valor |
 |---|---|
-| Versão | 0.2 |
-| Status | VIGENTE — revisão de consistência autorizada |
-| Data | 2026-09-17 |
+| Versão | 0.3 |
+| Status | VIGENTE — correção de propriedade do índice após piloto |
+| Data | 2026-09-23 |
 | Escopo | Os dez agentes de desenvolvimento definidos nesta conversa |
 | Base | Documentos AGENT-01 a AGENT-10 e decisões da conversa original |
-| Aprovação | Usuário autorizou aplicar as correções propostas e criar v0.2 nesta conversa |
+| Aprovação | Usuário solicitou preparar a correção identificada no piloto |
 
-Este documento define as regras comuns vigentes. A v0.2 aplica a revisão autorizada pelo usuário; escolhas operacionais estão explicitadas abaixo. Mudanças futuras exigem versionamento, e features em andamento permanecem na versão fixada até migração registrada.
+Este documento define as regras comuns vigentes. A v0.3 preserva as regras da v0.2 e elimina a ambiguidade sobre quem pode escrever `CURRENT.md` antes da participação do Development Manager. Mudanças futuras exigem versionamento, e features em andamento permanecem na versão fixada até migração registrada.
 
 ## 2. Princípios da equipe
 
@@ -286,7 +286,7 @@ O processo de deploy, ambientes produtivos e recuperação operacional ainda nã
 - Aprovação humana é obrigatória para FEATURE_SPEC e para o gate inicial de release.
 - Silêncio, hipótese ou conclusão de um agente não representa aprovação humana.
 
-## 15. Protocolo operacional v0.2
+## 15. Protocolo operacional v0.3
 
 ### Raiz central dos registros
 
@@ -295,7 +295,7 @@ Execuções são armazenadas em C:\Users\gusta\Documents\Agent-Records\<project-
 
 ### Inicialização e contexto obrigatório
 
-Todos os agentes carregam TEAM-RULES, ARTIFACT-STORAGE-RULES e sua definição da versão fixada no projeto. Registrar o commit da equipe, além da versão 0.2. O Manager é responsável pelo estado da feature e pelo índice CURRENT.md; antes de sua participação, o Feature Analyst mantém o registro inicial e transfere essa responsabilidade no handoff.
+Todos os agentes carregam TEAM-RULES, ARTIFACT-STORAGE-RULES e sua definição da versão fixada no projeto. Registrar o commit e a versão da equipe. Até o Development Manager aceitar formalmente a feature, o Feature Analyst é o único escritor de `CURRENT.md`; handoffs ao Planner e ao Reviewer transferem trabalho, não a propriedade do índice. Esses agentes registram `Proposed CURRENT update` em seus handoffs. O handoff ao Manager solicita a transferência; ela só se efetiva quando o Manager registra `CURRENT_OWNERSHIP_ACCEPTED` em execução própria e realiza a primeira atualização do índice. Após essa atualização atômica, apenas o Manager escreve `CURRENT.md`.
 
 Cada Task Package usa o modelo comum, com base de código, dependências exatas, critérios, testes e UX_REQUIRED. TASK_GRAPH.md é a fonte canônica de estado; outros formatos são derivados.
 
@@ -356,5 +356,6 @@ A revisão aprofundada por agente e o piloto continuam recomendados; não impede
 
 | Versão | Data | Alteração | Status |
 |---|---|---|---|
-| 0.1 | 2026-09-17 | Consolidação inicial e propostas de harmonização | Histórico preservado no Git |
-| 0.2 | 2026-09-17 | Regras vigentes, protocolo de execução, branches dependentes, gates, armazenamento e aprovações por revisão | VIGENTE |
+| 0.3 | 2026-09-23 | Propriedade e atualização de CURRENT.md antes e depois da entrada do Development Manager | VIGENTE |
+| 0.2 | 2026-09-17 | Regras, protocolo de execução, branches dependentes, gates, armazenamento e aprovações por revisão | SUBSTITUÍDA POR 0.3 |
+| 0.1 | 2026-09-17 | Consolidação inicial e propostas de harmonização | HISTÓRICA |

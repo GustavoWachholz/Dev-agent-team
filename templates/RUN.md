@@ -11,7 +11,7 @@ started_at_utc:
 finished_at_utc:
 execution_status: RUNNING / COMPLETED / BLOCKED / FAILED / CANCELLED
 decision_status: <decisão do domínio ou sem decisão>
-team_version: 0.2
+team_version: 0.3
 team_commit:
 cycle:
 attempt:

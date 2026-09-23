@@ -5,8 +5,9 @@ repository_url:
 
 feature_id:
 updated_at_utc:
-owner: Development Manager
-team_version: 0.2
+owner: Feature Analyst — até transferência formal ao Development Manager
+ownership_status: PRE_MANAGER / MANAGER_OWNED
+team_version: 0.3
 team_commit:
 
 ## Accepted artifact references
@@ -19,6 +20,10 @@ TASK_GRAPH:
 INTEGRATION_REPORT:
 QA_REPORT:
 
+## Candidate artifacts and pending decisions
+
+## Blocked executions
+
 ## Code revisions
 candidate_commit:
 target_base_commit:
@@ -27,3 +32,8 @@ target_base_commit:
 
 ## Accepted runs and approvals
 Este índice aponta para registros; não substitui aprovações.
+
+## Preserved history
+
+## Ownership history
+Feature Analyst owns the index from feature creation until Development Manager records CURRENT_OWNERSHIP_ACCEPTED and performs its first index update.

@@ -6,9 +6,9 @@ created_at_utc:
 repository_url: <sem credenciais>
 local_checkout_paths:
 records_root: C:\Users\gusta\Documents\Agent-Records\<project-id>-<nome>
-team_version: 0.2
+team_version: 0.3
 team_commit:
-team_snapshot_path: rules/v0.2-<team-commit>/
+team_snapshot_path: rules/v0.3-<team-commit>/
 
 ## Identity and ownership
 Responsável pelo cadastro:

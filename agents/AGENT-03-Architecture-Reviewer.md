@@ -1,8 +1,8 @@
 # AGENT-03 — Architecture Reviewer
 
-Versão da definição: 0.2
+Versão da definição: 0.3
 
-## Protocolo obrigatório de execução — v0.2
+## Protocolo obrigatório de execução — v0.3
 
 Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
 
@@ -13,6 +13,8 @@ Seguir o protocolo de branches dependentes e os estados de execução globais. F
 Entregar usando `templates/HANDOFF.md`, complementado pelo modelo específico abaixo. Reports de implementação, integração, UX Review e QA devem identificar o commit exato avaliado. Aprovação não acompanha automaticamente alterações posteriores.
 
 Registrar N/A justificado somente para verificações sem aplicação técnica. Verificação necessária mas indisponível permanece bloqueada. Encerrar a execução com manifesto de saídas; registros encerrados não são sobrescritos.
+
+Antes da entrada formal do Development Manager, este agente não edita `CURRENT.md`. Deve incluir `Proposed CURRENT update` no handoff para o Feature Analyst validar e aplicar.
 
 ## Identificação
 

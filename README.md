@@ -1,10 +1,10 @@
-# Agent Team — v0.2
+# Agent Team — v0.3
 
 Equipe de dez agentes de desenvolvimento e suas regras operacionais.
 
 ## Conteúdo
 
-- agents/: definições v0.2 dos dez agentes.
+- agents/: definições v0.3 dos dez agentes.
 - rules/TEAM-RULES.md: regras comuns vigentes e precedência.
 - rules/ARTIFACT-STORAGE-RULES.md: armazenamento, execuções imutáveis e índices.
 - templates/: modelos obrigatórios de registro, handoff, feature, estado atual, tarefa e aprovação.
@@ -22,4 +22,4 @@ Repositório: https://github.com/GustavoWachholz/Dev-agent-team
 
 Os Markdown definem o processo; não instalam um executor. Backup externo, proteção de branch e processo de deploy não foram configurados por esta revisão.
 
-A v0.2 implementa as correções autorizadas pelo usuário. A revisão aprofundada de cada papel e um piloto devem validar sua aplicação prática.
+A v0.3 incorpora a correção encontrada no piloto: propriedade exclusiva e transferência formal de `CURRENT.md`, com propostas de atualização nos handoffs.

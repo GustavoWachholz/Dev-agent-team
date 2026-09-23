@@ -1,8 +1,8 @@
 # AGENT-09 — Integration Agent
 
-Versão da definição: 0.2
+Versão da definição: 0.3
 
-## Protocolo obrigatório de execução — v0.2
+## Protocolo obrigatório de execução — v0.3
 
 Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
 

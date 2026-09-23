@@ -1,8 +1,8 @@
 # AGENT-04 — Development Manager
 
-Versão da definição: 0.2
+Versão da definição: 0.3
 
-## Protocolo obrigatório de execução — v0.2
+## Protocolo obrigatório de execução — v0.3
 
 Antes de atuar, carregar `rules/TEAM-RULES.md`, `rules/ARTIFACT-STORAGE-RULES.md` e este documento da versão fixada no projeto. As regras comuns prevalecem; este arquivo detalha o papel.
 
@@ -13,6 +13,8 @@ Seguir o protocolo de branches dependentes e os estados de execução globais. F
 Entregar usando `templates/HANDOFF.md`, complementado pelo modelo específico abaixo. Reports de implementação, integração, UX Review e QA devem identificar o commit exato avaliado. Aprovação não acompanha automaticamente alterações posteriores.
 
 Registrar N/A justificado somente para verificações sem aplicação técnica. Verificação necessária mas indisponível permanece bloqueada. Encerrar a execução com manifesto de saídas; registros encerrados não são sobrescritos.
+
+Ao receber a feature, validar o handoff e registrar `CURRENT_OWNERSHIP_ACCEPTED` em execução própria. A primeira atualização de `CURRENT.md` feita nessa execução conclui a transferência; a partir dela, este agente é o único escritor do índice e aplica propostas dos demais agentes após validação.
 
 ## Identificação
 

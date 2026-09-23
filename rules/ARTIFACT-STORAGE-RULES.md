@@ -1,7 +1,7 @@
 # Artifact Storage Rules
 
-Versão: 0.2
-Status: estrutura aprovada pelo usuário nesta conversa.
+Versão: 0.3
+Status: estrutura vigente; propriedade de CURRENT.md esclarecida após o piloto.
 
 ## Localização
 
@@ -16,7 +16,7 @@ Agent-Records/
 └── PROJECT-<UUID>-nome-do-projeto/
     ├── PROJECT.md
     ├── rules/
-    │   └── v0.2-<team-commit>/
+    │   └── v0.3-<team-commit>/
     │       ├── agents/
     │       ├── rules/
     │       └── templates/
@@ -51,10 +51,14 @@ Agent-Records/
 
 Usar o modelo RUN.md da pasta templates/ e referenciar handoffs e aprovações correspondentes. Registrar branch e commit testado quando aplicáveis.
 
-## Protocolo de registro v0.2
+## Protocolo de registro v0.3
 
-- IDs de feature são alocados pelo Feature Analyst na criação; o Manager assume o registro após receber a feature.
-- Manager é o único escritor de CURRENT.md após essa transferência. Agentes enviam propostas de atualização em seus handoffs.
+- IDs de feature são alocados pelo Feature Analyst na criação.
+- Até o Development Manager aceitar formalmente a feature, o Feature Analyst é o único escritor de `CURRENT.md`, inclusive depois de handoffs ao Technical Planner e ao Architecture Reviewer. Esses handoffs transferem trabalho, não a propriedade do índice.
+- Technical Planner, Architecture Reviewer e qualquer outro agente anterior ao Manager não editam `CURRENT.md`. Eles incluem no handoff uma seção `Proposed CURRENT update` com gate, artefatos, decisões, blockers e referências que o Feature Analyst deve validar antes de atualizar o índice.
+- O handoff formal ao Development Manager apenas solicita a transferência. O Manager valida o pacote e registra `CURRENT_OWNERSHIP_ACCEPTED` em uma execução própria; sua primeira atualização de `CURRENT.md` conclui atomicamente a transferência e registra a execução de aceitação no histórico de propriedade. Até isso ocorrer, o Feature Analyst permanece proprietário.
+- Após a aceitação, o Manager é o único escritor de `CURRENT.md`; os demais agentes continuam enviando propostas de atualização em seus handoffs.
+- Se o proprietário do índice não estiver em uma execução ativa quando receber uma proposta, abre uma execução administrativa própria para validar referências, atualizar `CURRENT.md` e registrar o hash do índice mutável. Nenhum agente pode declarar que atualizou o índice em nome do proprietário.
 - Cada execução usa YYYYMMDDTHHMMSSZ-run-<UUID>. A sequência numérica anterior é substituída por UUID para evitar colisões de instâncias paralelas. Registros antigos não são renomeados.
 - Criar o diretório exclusivamente; se já existir, gerar outro UUID. Não usar overwrite.
 - O agente cria RUN.md antes de trabalhar, registra entradas exatas e atualiza somente sua execução ainda aberta.
@@ -62,9 +66,9 @@ Usar o modelo RUN.md da pasta templates/ e referenciar handoffs e aprovações c
 - Encerrar com execution_status e finished_at. Após encerramento, nenhum arquivo da execução pode ser alterado.
 - Aprovação recebida após encerramento gera novo registro APPROVAL.md em nova execução, referenciando o artefato aprovado.
 - Se houver interrupção, o Manager registra em nova execução que a anterior foi interrompida/superada. Preserva o diretório anterior sem completar ou reescrever seus arquivos. A retomada recebe novo Run ID.
-- CURRENT.md só aponta para entregas aceitas e versões aprovadas; atualizações são serializadas pelo responsável e commitadas no Git. O índice não concede aprovação.
+- CURRENT.md mantém seções separadas para artefatos aceitos, candidatos, execuções bloqueadas e histórico. Somente entregas efetivamente aprovadas entram na seção de aceitos. Atualizações são serializadas pelo proprietário vigente; o índice não concede aprovação.
 - Registrar team_version e team_commit imutável. O snapshot inclui agentes, regras e templates; usar artifact_paths relativos à pasta de registros do projeto; code_paths são relativos à raiz do repositório de código. Nunca misturar essas duas bases.
-- Registros de preparação de dependências também devem ser preservados. Os registros ficam fora das branches de código e não são transportados por merge. Todas as instâncias e worktrees do mesmo projeto usam a mesma pasta de registros. O Manager serializa atualizações de CURRENT.md, sem descartar execuções.
+- Registros de preparação de dependências também devem ser preservados. Os registros ficam fora das branches de código e não são transportados por merge. Todas as instâncias e worktrees do mesmo projeto usam a mesma pasta de registros. O proprietário vigente serializa atualizações de CURRENT.md, sem descartar execuções.
 - Git não substitui backup independente. A política exige preservação; o operador do projeto deve prover backup, cuja implementação não faz parte desta revisão.
 
 ## Identidade do projeto e resolução de caminhos

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3 — 2026-09-23
+
+- Define o Feature Analyst como único escritor de `CURRENT.md` antes da entrada formal do Development Manager.
+- Esclarece que handoffs ao Technical Planner e ao Architecture Reviewer não transferem a propriedade do índice.
+- Exige `Proposed CURRENT update` nos handoffs dos agentes que não possuem o índice.
+- Transfere a propriedade somente no handoff formal aceito pelo Development Manager.
+- Separa no modelo de `CURRENT.md` artefatos aceitos, candidatos, bloqueios e histórico.
+
 ## 0.2 — 2026-09-17
 
 - Ajuste aprovado: registros externos em Agent-Records, por projeto; PROJECT.md, identidade do repositório e separação de caminhos de artefatos/código.
