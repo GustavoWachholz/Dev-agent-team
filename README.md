@@ -12,7 +12,7 @@ Equipe de dez agentes de desenvolvimento e suas regras operacionais.
 
 ## Armazenamento
 
-Definições: Agent-Team. Histórico de execuções: C:\Users\gusta\Documents\Agent-Records, organizado por projeto, feature, agente e execução. Os registros não entram nas branches do código. Consultar ARTIFACT-STORAGE-RULES e templates/PROJECT.md.
+Definições: Agent-Team. Histórico de execuções: C:\Users\nome-do-usuario\Documents\Agent-Records, organizado por projeto, feature, agente e execução. Os registros não entram nas branches do código. Consultar ARTIFACT-STORAGE-RULES e templates/PROJECT.md.
 
 ## Uso
 
